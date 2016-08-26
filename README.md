@@ -11,7 +11,7 @@ TIAS was built to showcase my proposed algorithm. The algorithm relies on the de
 ![TIAS](https://tombu.co.uk/wp-content/uploads/2016/07/TiaPing-1024x546.png)
 
 ### Requirements
-When building from source TIAS requires the OpenCV library. The location of the OpenCV library is hard coded in the project file. This needs to be changed first.
+When building from source TIAS requires the OpenCV library. The location of the OpenCV library is hard coded in the .pro file. This needs to be changed first.
 
-TIAS binary needs the Visual C++ 2015 runtime. 
+If you are just trying it out, I have included a Windows binary zip. If TIAS moans about a missing DLL, it probably needs the Visual C++ 2015 runtime. 
 https://www.microsoft.com/en-us/download/details.aspx?id=48145
