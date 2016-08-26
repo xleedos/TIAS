@@ -8,6 +8,10 @@ TIAS will currently load in a directory containing images. Each image is analyse
 ### The algorithm
 TIAS was built to showcase my proposed algorithm. The algorithm relies on the detection of a the face. From the face a predicted body can be estimated. The number of skin coloured pixels with the predicted body are counted and if this figure is above a defined threshold, the image is said to contain nudity. The algorithm also incorporates Canny line detection and proportion analysis to reject false positives. 
 
-
-
 ![TIAS](https://tombu.co.uk/wp-content/uploads/2016/07/TiaPing-1024x546.png)
+
+### Requirements
+When building from source TIAS requires the OpenCV library. The location of the OpenCV library is hard coded in the project file. This needs to be changed first.
+
+TIAS binary needs the Visual C++ 2015 runtime. 
+https://www.microsoft.com/en-us/download/details.aspx?id=48145
