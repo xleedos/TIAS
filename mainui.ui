@@ -165,9 +165,9 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>-165</y>
+          <y>0</y>
           <width>231</width>
-          <height>754</height>
+          <height>913</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -186,7 +186,7 @@
          <item>
           <widget class="QTabWidget" name="tabWidget">
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="tab">
             <attribute name="title">

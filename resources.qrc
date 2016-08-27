@@ -1,15 +1,12 @@
 <RCC>
     <qresource prefix="/TomsImageAnalyser">
-        <file alias="Unavailable">Unavailable.png</file>
         <file alias="TolmTasy">ToImTaSy.ico</file>
-        <file alias="KFFFlag">Resources/TagIcons/KFF/KFFFlag.png</file>
         <file>Resources/TagIcons/IconSet/cancel-1.png</file>
         <file alias="kff_flag">Resources/TagIcons/IconSet/target.png</file>
         <file>Resources/TagIcons/IconSet/visible.png</file>
         <file alias="small_flag">Resources/TagIcons/IconSet/layout.png</file>
         <file alias="meta_flag">Resources/TagIcons/IconSet/settings-1.png</file>
         <file alias="filter">Resources/TagIcons/IconSet/funnel.png</file>
-        <file alias="Backing">Resources/BackgroundTest.jpg</file>
         <file alias="face_flag">Resources/TagIcons/IconSet/smile.png</file>
         <file alias="up">Resources/TagIcons/IconSet/up.png</file>
         <file>Resources/TagIcons/IconSet/down.png</file>
@@ -19,6 +16,7 @@
         <file alias="skin_flag">Resources/TagIcons/IconSet/skin.png</file>
         <file alias="load">Resources/load.gif</file>
         <file alias="CaseDB">Resources/CaseDB</file>
+        <file alias="TIAS">Resources/TIAS.png</file>
     </qresource>
     <qresource prefix="/Cascades">
         <file>Resources/haarcascade_eye_tree_eyeglasses.xml</file>

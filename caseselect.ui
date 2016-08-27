@@ -9,175 +9,301 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>246</height>
+    <width>580</width>
+    <height>334</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string notr="true">Select a case</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
        </property>
        <property name="text">
-        <string>TIAS - Proof of concept</string>
+        <string/>
        </property>
-       <property name="scaledContents">
-        <bool>false</bool>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/TomsImageAnalyser/TIAS</pixmap>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-       <property name="text">
-        <string>V. 0.02</string>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
        </property>
-      </widget>
+      </spacer>
      </item>
      <item>
-      <widget class="QListWidget" name="CaseSelector"/>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QGroupBox" name="groupBox">
+      <widget class="QGroupBox" name="groupBox_2">
        <property name="title">
-        <string>Case Details</string>
+        <string/>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <layout class="QFormLayout" name="formLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="Info_Created_3">
-            <property name="text">
-             <string>CaseID : </string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="I_Case">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="CreatedLabel">
-            <property name="text">
-             <string>Created : </string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="I_Created">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="LeadExaminerLabel">
-            <property name="text">
-             <string>Lead Examiner : </string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="I_Examiner">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="Info_Created_4">
-            <property name="text">
-             <string>Case Name : </string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="I_CaseName">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="Info_Created_5">
-            <property name="text">
-             <string>Number Of Images : </string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="I_Image">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Version:      1.1</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QLabel" name="Info_Created_6">
-            <property name="text">
-             <string>Case Description :</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="I_Description">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>WARNING: Use at your own risk!</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
      </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QPushButton" name="Load">
-         <property name="text">
-          <string>Load</string>
+        <widget class="QListWidget" name="CaseSelector">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>65535</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>New Case...</string>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="Load">
+           <property name="text">
+            <string>Load</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>New Case...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>Delete Case...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>170</height>
+          </size>
          </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>65535</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Case Details</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="Info_Created_3">
+              <property name="text">
+               <string>CaseID : </string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="I_Case">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="CreatedLabel">
+              <property name="text">
+               <string>Created : </string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="I_Created">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="LeadExaminerLabel">
+              <property name="text">
+               <string>Lead Examiner : </string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="I_Examiner">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="Info_Created_4">
+              <property name="text">
+               <string>Case Name : </string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="I_CaseName">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="Info_Created_5">
+              <property name="text">
+               <string>Number Of Images : </string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="I_Image">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="Info_Created_6">
+              <property name="text">
+               <string>Case Description :</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="I_Description">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Exit</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="text">
+            <string>About</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>Exit</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -185,6 +311,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

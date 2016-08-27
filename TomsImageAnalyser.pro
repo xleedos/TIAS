@@ -29,7 +29,7 @@ SOURCES += main.cpp\
 INCLUDEPATH += "C:\opencv\build\include"
 
 LIBS += -L"C:\opencv\build\x64\vc14\lib"
-LIBS += -lopencv_world310
+LIBS += -lopencv_world310d
 
 
 HEADERS  += mainwindow.h \
