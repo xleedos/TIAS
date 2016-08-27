@@ -20,6 +20,7 @@ QList<QDir> CheckCaseFolders(QString caseid);
 void ImportImages(QDir url, QString caseID);
 QList<ImageInfo> GetCaseImages(int caseID);
 QVector<int> GetTags(int ImageID);
+bool CreateCase(QString ExaminerName, QString CaseName, QString Description);
 double GetNumImages(QString caseID);
 void PurgeDatabase();
 class DatabaseFunctions

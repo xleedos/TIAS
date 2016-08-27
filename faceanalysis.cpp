@@ -3,16 +3,15 @@
 #include <QDebug>
 
 
-QString face_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_frontalface_alt.xml")  ;
-QString face_alt_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_frontalface_default.xml")  ;
-QString eyes_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_eye_tree_eyeglasses.xml")  ;
-QString side_face_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_profileface.xml") ;
+QString face_cascade_name = QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_frontalface_alt.xml"  ;
+QString face_alt_cascade_name = QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_frontalface_default.xml" ;
+QString side_face_cascade_name = QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_profileface.xml" ;
 
 
 
 CascadeClassifier face_cascade;
 CascadeClassifier face_alt_cascade;
-CascadeClassifier eyes_cascade;
+
 CascadeClassifier side_face_cascade;
 
 
@@ -36,10 +35,7 @@ vector<Rect> DetectFaces(Mat Image, int FaceMin, int FaceNe, double FaceScale){
         qDebug() << "Cannot load face cascase";
 
     };
-    if( !eyes_cascade.load( eyes_cascade_name.toStdString() ) ){
-        qDebug() << "Cannot load eye cascase";
 
-    };
 
     Mat greyscaleImage;
 
@@ -80,35 +76,11 @@ Mat DrawFace(Mat greyscaleImage, vector<Rect> faces, vector<Rect> eyes){
         //Mat circleface = greyscaleImage( faces[i] );
 
 
-        //Detect eyes
 
-        for( size_t j = 0; j < eyes.size(); j++ )
-             {
-               Point center( faces[i].x + eyes[j].x + eyes[j].width*0.5, faces[i].y + eyes[j].y + eyes[j].height*0.5 );
-               int radius = cvRound( (eyes[j].width + eyes[j].height)*0.25 );
-               circle( greyscaleImage, center, radius, Scalar( 200, 200, 200 ), 4, 8, 0 );
-             }
         return greyscaleImage;
 
     }
 
 }
 
-vector<Rect> DetectEyes(Mat Image, vector<Rect> faces){
 
-
-    Mat greyscaleImage;
-    vector<Rect> eyes;
-    cvtColor(Image, greyscaleImage,CV_BGR2GRAY);
-    equalizeHist( greyscaleImage, greyscaleImage );
-    for( size_t i = 0; i < faces.size(); i++ ){
-        //For each detected face
-
-
-        Mat circleface = greyscaleImage( faces[i] );
-
-        eyes_cascade.detectMultiScale( circleface, eyes, 1.2, 2, 0|CV_HAAR_SCALE_IMAGE, Size(10, 10) );
-
-    }
-        return eyes;
-}

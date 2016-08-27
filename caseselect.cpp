@@ -2,9 +2,11 @@
 #include "ui_caseselect.h"
 #include "mainui.h"
 #include "about.h"
+#include "casecreate.h"
 QList<QStringList> cases;
 About *AboutBox;
-
+CaseCreate *CaseCreator;
+QListWidget *List;
 CaseSelect::CaseSelect(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CaseSelect)
@@ -12,33 +14,45 @@ CaseSelect::CaseSelect(QWidget *parent) :
     ui->setupUi(this);
 
 //Need to populate the list box is open cases
-cases = GetCaseLists();
-if (cases.count() > 0){
-
-
-    for ( int i = 0; i != cases.count(); i++ )
-    {
-       QStringList Record = cases.at(i);
-
-       QString ID = Record.at(0);
-       QString InvestigatorName = Record.at(1);
-       QDateTime CreatedTime = ToUnixEpoch(Record.at(2));
-       QString CaseName = Record.at(3);
-       QString Description = Record.at(4);
-       ui->CaseSelector->addItem(CreatedTime.toString("dd/MM/yy HH:mm:ss") + " - " + CaseName);
-       //ui->tableWidget->insertRow(tableWidget->rowCount());
-
-    }
+List = ui->CaseSelector;
+    RefreshCaseSelect();
 
 }
 
-ui->CaseSelector->item(0)->setSelected(true);
 
-}
 
 CaseSelect::~CaseSelect()
 {
     delete ui;
+}
+
+
+void RefreshCaseSelect(){
+    List->clear();
+    cases = GetCaseLists();
+    if (cases.count() > 0){
+
+
+        for ( int i = 0; i != cases.count(); i++ )
+        {
+           QStringList Record = cases.at(i);
+           QString ID = Record.at(0);
+           QString InvestigatorName = Record.at(1);
+           QDateTime CreatedTime = ToUnixEpoch(Record.at(2));
+           QString CaseName = Record.at(3);
+           QString Description = Record.at(4);
+           List->addItem(CreatedTime.toString("dd/MM/yy HH:mm:ss") + " - " + CaseName);
+           //ui->tableWidget->insertRow(tableWidget->rowCount());
+
+        }
+    List->item(0)->setSelected(true);
+    }
+
+
+
+
+
+
 }
 
 void CaseSelect::on_CaseSelector_currentRowChanged(int currentRow)
@@ -78,4 +92,10 @@ void CaseSelect::on_pushButton_4_clicked()
 {
     AboutBox = new About();
     AboutBox->show();
+}
+
+void CaseSelect::on_pushButton_2_clicked()
+{
+    CaseCreator = new CaseCreate();
+    CaseCreator->show();
 }
