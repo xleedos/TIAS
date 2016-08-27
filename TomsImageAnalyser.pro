@@ -25,8 +25,11 @@ SOURCES += main.cpp\
     faceanalysis.cpp \
     skinanalysis.cpp \
     exif.cpp \
-    autoadjustcontrast.cpp
+    autoadjustcontrast.cpp \
+    about.cpp \
+    casecreate.cpp
 INCLUDEPATH += "C:\opencv\build\include"
+
 
 LIBS += -L"C:\opencv\build\x64\vc14\lib"
 LIBS += -lopencv_world310d
@@ -43,12 +46,16 @@ HEADERS  += mainwindow.h \
     faceanalysis.h \
     skinanalysis.h \
     exif.h \
-    autoadjustcontrast.h
+    autoadjustcontrast.h \
+    about.h \
+    casecreate.h
 
 FORMS    += mainwindow.ui \
     mainui.ui \
     caseselect.ui \
-    imageinspector.ui
+    imageinspector.ui \
+    about.ui \
+    casecreate.ui
 
 DISTFILES +=
 

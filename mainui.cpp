@@ -403,6 +403,60 @@ void initialiseCase(QStringList SelectedCase){
 
 }
 
+void CheckDep(){
+    //Ok so does the database exist?
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//CaseDB.db")){
+        qDebug() << "DB does not exist... creating it";
+        QFile::copy(":/TomsImageAnalyser/Resources/Template.db" , QDir::toNativeSeparators(QDir::currentPath())+"//CaseDB.db");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//CaseDB.db");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+
+    //Face Cascades!
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_frontalface_default.xml")){
+        QFile::copy(":/Cascades/Resources/haarcascade_frontalface_default.xml" , QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_frontalface_default.xml");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_frontalface_default.xml");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_frontalface_alt.xml")){
+        QFile::copy(":/Cascades/Resources/haarcascade_frontalface_alt.xml" , QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_frontalface_alt.xml");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_frontalface_alt.xml");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_profileface.xml")){
+        QFile::copy(":/Cascades/Resources/haarcascade_profileface.xml" , QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_profileface.xml");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_profileface.xml");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+
+    //Body Cascades
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_fullbody.xml")){
+        QFile::copy(":/Cascades/Resources/haarcascade_fullbody.xml" , QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_fullbody.xml");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_fullbody.xml");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_lowerbody.xml")){
+        QFile::copy(":/Cascades/Resources/haarcascade_lowerbody.xml" , QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_lowerbody.xml");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_lowerbody.xml");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_upperbody.xml")){
+        QFile::copy(":/Cascades/Resources/haarcascade_upperbody.xml" , QDir::toNativeSeparators(QDir::currentPath())+"//haarcascade_upperbody.xml");
+        QFile foo(QDir::toNativeSeparators(QDir::currentPath())+ "//haarcascade_upperbody.xml");
+        foo.setPermissions(QFile::WriteUser);
+        foo.close();
+    }
+
+
+
+}
+
 void MainUI::on_pushButton_2_clicked()
 {
     int start = QDateTime::currentMSecsSinceEpoch();
@@ -443,6 +497,10 @@ MainUI::MainUI(QWidget *parent) :
     QMovie *movie = new QMovie(":TomsImageAnalyser/load");
     uip->Loader->setMovie(movie);
     movie->start();
+
+    //Check dependancies!
+    CheckDep();
+
 
     if (!initialiseDatabase()){
         QMessageBox msgBox;

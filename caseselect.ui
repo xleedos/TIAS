@@ -32,7 +32,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
+         <width>333</width>
          <height>60</height>
         </size>
        </property>
@@ -41,6 +41,9 @@
        </property>
        <property name="pixmap">
         <pixmap resource="resources.qrc">:/TomsImageAnalyser/TIAS</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -71,6 +74,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <spacer name="verticalSpacer_3">
@@ -95,7 +101,16 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>WARNING: Use at your own risk!</string>
+           <string>https://github.com/xleedos/TIAS</string>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+          <property name="openExternalLinks">
+           <bool>true</bool>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::TextBrowserInteraction</set>
           </property>
          </widget>
         </item>

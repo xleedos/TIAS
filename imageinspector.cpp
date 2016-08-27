@@ -8,9 +8,9 @@
 using namespace cv;
 ImageInfo Imager;
 Mat Image;
-String fullbody_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_fullbody.xml").toStdString();
-String upperbody_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_upperbody.xml").toStdString();
-String lowerbody_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "/haarcascade_lowerbody.xml").toStdString();
+String fullbody_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "//haarcascade_fullbody.xml").toStdString();
+String upperbody_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "//haarcascade_upperbody.xml").toStdString();
+String lowerbody_cascade_name = QDir::toNativeSeparators(QDir::currentPath() + "//haarcascade_lowerbody.xml").toStdString();
 CascadeClassifier fullbody;
 CascadeClassifier upperbody;
 CascadeClassifier lowerbody;

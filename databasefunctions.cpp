@@ -1,5 +1,6 @@
 #include "databasefunctions.h"
 #include "mainui.h"
+#include <QSqlError>
 #include <QDir>
 
 
@@ -54,9 +55,9 @@ vector<Rect> DeserialiseFaces( QString faces){
 void PurgeDatabase(){
 
 QFile destinationFile;
-QFile sourceFile(":/TomsImageAnalyser/CaseDB");
+QFile sourceFile(":/TomsImageAnalyser/Resources/Template.db");
 QDir destination(QDir::toNativeSeparators(QDir::currentPath()));
-destinationFile.setFileName(destination.filePath("CaseDB"));
+destinationFile.setFileName(destination.filePath("CaseDB.db"));
 sourceFile.copy(destinationFile.fileName());
 
 }
@@ -131,13 +132,10 @@ void ExifData(QString path, QString ImageID){
 //###############################################
 bool initialiseDatabase(){
 
-    QString DatabasePath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory);
-    if (!fileExists(QDir::toNativeSeparators(QDir::currentPath())+"CaseDB")){
-        //PurgeDatabase();
-        //Couldnt find the database! Create a new one?
-    }
+    QString DatabasePath = QDir::toNativeSeparators(QDir::currentPath());
+
     m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName(DatabasePath + "/CaseDB");
+    m_db.setDatabaseName(DatabasePath + "//CaseDB.db");
     if (!m_db.open())
     {
        //qDebug() << "Error: connection with database fail";
@@ -159,6 +157,28 @@ QList<QDir> GetImages(QString caseid){
 
 }
 
+bool CreateCase(QString ExaminerName, QString CaseName, QString Description){
+
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+
+
+    QSqlQuery InsertCaseDetails(m_db);
+    InsertCaseDetails.prepare("INSERT INTO `CaseDetails`(`Investigator_Name`,`Date_Created`,`CaseFriendlyName`,`NumberOfImages`,`Description`) VALUES (?,?,?,'0',?);");
+
+    InsertCaseDetails.addBindValue(ExaminerName);
+    InsertCaseDetails.addBindValue(currentDateTime.toTime_t());
+    InsertCaseDetails.addBindValue(CaseName);
+    InsertCaseDetails.addBindValue(Description);
+    InsertCaseDetails.exec();
+
+    qDebug() << "SqLite error:" << InsertCaseDetails.lastError().text() << ", SqLite error code:" << InsertCaseDetails.lastError().number();
+    //FIX ME!!!! Return false if error
+
+    return true;
+
+
+
+}
 
 void ImportImages(QDir url, QString caseID){
 
