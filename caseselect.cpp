@@ -1,7 +1,9 @@
 #include "caseselect.h"
 #include "ui_caseselect.h"
 #include "mainui.h"
+#include "about.h"
 QList<QStringList> cases;
+About *AboutBox;
 
 CaseSelect::CaseSelect(QWidget *parent) :
     QDialog(parent),
@@ -70,4 +72,10 @@ if(ui->CaseSelector->selectedItems().count() > 0){
 void CaseSelect::on_pushButton_3_clicked()
 {
     QApplication::quit();
+}
+
+void CaseSelect::on_pushButton_4_clicked()
+{
+    AboutBox = new About();
+    AboutBox->show();
 }
